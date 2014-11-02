@@ -35,7 +35,7 @@
       (reduce + (map (partial volume-at-height heights) (range 1 (inc max-height)))))))
 
 (defn -main
-  "Show some examples."
+  "Calculate volume of shapes provided on standard input."
   [& args]
   (with-open [rdr (io/reader *in*)]
     (println "Enter heights separated by spaces")

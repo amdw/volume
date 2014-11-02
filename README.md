@@ -25,6 +25,8 @@ Pre-requisites:
 
 Clone the repository, ```cd``` into it, and run ```lein repl```. You can then type commands such as ```(volume [2 1 2])``` which should give the result ```1```.
 
+You can run the main function using ```lein run```. This will simply read space-separated structures from standard input and print the volume contained by each one.
+
 To run the tests, run ```lein test```.
 
 ## License
