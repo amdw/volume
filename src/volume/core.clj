@@ -1,5 +1,7 @@
 (ns volume.core
-  (:gen-class))
+  (:gen-class)
+  (:require [clojure.java.io :as io]
+            [clojure.string :as str]))
 
 (defn- volume-at-height
   "Amount of volume contained by a structure at a certain height.
@@ -35,5 +37,8 @@
 (defn -main
   "Show some examples."
   [& args]
-  (println "[4 1 2 3] " (volume [4 1 2 3])))
-
+  (with-open [rdr (io/reader *in*)]
+    (println "Enter heights separated by spaces")
+    (doseq [line (line-seq rdr)]
+      (let [heights (map #(. Integer parseInt %) (str/split line #" +"))]
+        (println heights (volume heights))))))
