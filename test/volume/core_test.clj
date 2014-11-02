@@ -11,14 +11,14 @@
     (is (= 0 (volume [1])) "Single element")
     (is (= 0 (volume [1 1])) "Flat")
     (is (= 0 (volume [1 2])) "Sloping")
-    (is (= 1 (volume [2 1 2])))
-    (is (= 1 (volume [2 1 3])))
-    (is (= 2 (volume [3 1 3])))
-    (is (= 2 (volume [2 1 1 2])))
-    (is (= 3 (volume [4 1 2 3])))
-    (is (= 2 (volume [4 1 2 1 2])))
-    (is (= 5 (volume [4 1 2 1 3])))
-    (is (= 8 (volume [4 1 2 1 4])))))
+    (is (= 1 (volume [2 1 2])) "U-shaped")
+    (is (= 1 (volume [2 1 3])) "U-shaped but leaking right")
+    (is (= 2 (volume [3 1 3])) "Longer U-shaped")
+    (is (= 2 (volume [2 1 1 2])) "Wider U-shaped")
+    (is (= 3 (volume [4 1 2 3])) "Sloping right-hand side")
+    (is (= 2 (volume [4 1 2 1 2])) "Two pools, leaking right")
+    (is (= 5 (volume [4 1 2 1 3])) "Two pools, leaking right a bit less")
+    (is (= 8 (volume [4 1 2 1 4])) "Two full pools")))
 
 ;; Property-based tests
 
