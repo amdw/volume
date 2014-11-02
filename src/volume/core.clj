@@ -10,7 +10,7 @@
    1: ###"
   ([structure height]
      (volume-at-height structure height false 0 0))
-  ([structure    ; Vector of heights
+  ([structure    ; Seq of heights
     height       ; Height which we are looking at
     seen-left?   ; Have we seen a left-hand wall at this height?
     confirmed    ; Volume which we have confirmed to be contained at this level
@@ -23,7 +23,7 @@
                (if seen-left? (inc potential) potential)))))))
 
 (defn volume
-  "Calculate the volume of water held by a simple 2D structure described by a vector of heights.
+  "Calculate the volume of water held by a simple 2D structure described by a seq of heights.
    For example, the volume held by [4 1 2 3] would be 3, as follows:
    #
    #..#
