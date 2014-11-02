@@ -2,8 +2,12 @@
   (:gen-class))
 
 (defn- volume-at-height
-  "Amount of volume contained by a structure at a certain height"
-  ([structure height] (volume-at-height structure height false 0 0))
+  "Amount of volume contained by a structure at a certain height.
+   Example: (volume-at-height [2 1 2] 2) gives 1 because:
+   2: #x#
+   1: ###"
+  ([structure height]
+     (volume-at-height structure height false 0 0))
   ([structure    ; Vector of heights
     height       ; Height which we are looking at
     seen-left?   ; Have we seen a left-hand wall at this height?
