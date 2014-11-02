@@ -33,4 +33,4 @@ To run the tests, run ```lein test```.
 
 Copyright © 2014 Andrew Medworth
 
-Distributed under the BSD License: see LICENSE file for more details.
+Distributed under the BSD License: see LICENSE.md file for more details.
