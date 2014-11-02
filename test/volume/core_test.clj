@@ -31,6 +31,8 @@
 
 ;; Volume is the same if you increment all elements by a constant
 (defspec constant-lift-unchanged num-tests
-  (prop/for-all [v (gen/vector gen/nat)
-                 i gen/nat]
+  (prop/for-all [[v i] (gen/bind (gen/vector gen/nat)
+                                 #(gen/tuple (gen/return %)
+                                             ; Random increment between -min(vector) and 100
+                                             (gen/choose (if (empty? %) 0 (- (apply min %))) 100)))]
                 (= (volume v) (volume (map (partial + i) v)))))
