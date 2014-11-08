@@ -20,6 +20,12 @@
     (is (= 5 (volume [4 1 2 1 3])) "One pool with two dips (asymmetrical)")
     (is (= 8 (volume [4 1 2 1 4])) "One pool with two dips (symmetrical)")))
 
+(deftest pretty-printing
+  (testing "Pretty-print test cases"
+    (is (= "" (sprint-struct [])) "Empty")
+    (is (= "#" (sprint-struct [1])) "Singleton")
+    (is (= "# #\n###" (sprint-struct [2 1 2])) "Basic U shape")))
+
 ;; Property-based tests
 
 (def num-tests 100)

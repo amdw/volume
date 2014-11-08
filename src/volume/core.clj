@@ -3,6 +3,16 @@
   (:require [clojure.java.io :as io]
             [clojure.string :as str]))
 
+(defn sprint-struct
+  "Pretty-print a structure"
+  [structure]
+  (if (empty? structure) ""
+    (let [max-height (apply max structure)
+          heights    (range max-height 0 -1)
+          line-gen   (fn [h] (str/join (map #(if (>= % h) "#" " ") structure)))
+          lines      (map line-gen heights)]
+      (str/join "\n" lines))))
+
 (defn- volume-at-height
   "Amount of volume contained by a structure at a certain height.
    Example: (volume-at-height [2 1 2] 2) gives 1 because:
@@ -41,4 +51,5 @@
     (println "Enter heights separated by spaces")
     (doseq [line (line-seq rdr)]
       (let [heights (map #(. Integer parseInt %) (str/split line #" +"))]
-        (println heights (volume heights))))))
+        (println (sprint-struct heights))
+        (println (volume heights))))))
