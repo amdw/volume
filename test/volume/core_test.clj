@@ -17,8 +17,8 @@
     (is (= 2 (volume [2 1 1 2])) "Wider U-shaped")
     (is (= 3 (volume [4 1 2 3])) "Sloping right-hand side")
     (is (= 2 (volume [4 1 2 1 2])) "Two pools, leaking right")
-    (is (= 5 (volume [4 1 2 1 3])) "Two pools, leaking right a bit less")
-    (is (= 8 (volume [4 1 2 1 4])) "Two full pools")))
+    (is (= 5 (volume [4 1 2 1 3])) "One pool with two dips (asymmetrical)")
+    (is (= 8 (volume [4 1 2 1 4])) "One pool with two dips (symmetrical)")))
 
 ;; Property-based tests
 
